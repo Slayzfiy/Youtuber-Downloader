@@ -23,15 +23,27 @@ namespace PlayerUI
 
         public string Save_Video_KEYWORD(string keyword)
         {
-            string link = $"https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=2&q={keyword}&type=video&key={api_token}";
+            string link = $"https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=5&q={keyword}&type=video&key={api_token}";
             using (var wb = new WebClient())
             {
                 var response = wb.DownloadString(link);
                 var tmpResult = JObject.Parse(response);
-                var video_id = tmpResult["items"].Values("id").Values("videoId").ToArray();
-                var thumbnail_url = tmpResult["items"].Values("snippet").Values("thumbnails").Values("high").Values("url").ToArray();
+                var temp_video_title = tmpResult["items"].Values("snippet").Values("title").ToArray();
+                var temp_video_id = tmpResult["items"].Values("id").Values("videoId").ToArray();
+                var temp_video_thumbnail = tmpResult["items"].Values("snippet").Values("thumbnails").Values("high").Values("url").ToArray();
 
-                return thumbnail_url[1].ToString();
+                return temp_video_title[0].ToString();
+                foreach (var item in temp_video_id)
+                {
+                    string video_url = $"https://www.youtube.com/watch?v={item}";
+                    //VideoObject o = new VideoObject("hallo", video_url, temp_video_thumbnail);
+                }
+
+                foreach (var item in temp_video_thumbnail)
+                {
+
+                }
+               
                 
                
 
