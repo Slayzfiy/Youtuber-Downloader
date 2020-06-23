@@ -29,9 +29,9 @@ namespace PlayerUI
                 var response = wb.DownloadString(link);
                 var tmpResult = JObject.Parse(response);
                 var video_id = tmpResult["items"].Values("id").Values("videoId").ToArray();
-                var thumbnail_url = tmpResult["items"].Values("thumbnails").Values("default").Values("url").ToArray();
+                var thumbnail_url = tmpResult["items"].Values("snippet").Values("thumbnails").Values("high").Values("url").ToArray();
 
-                return thumbnail_url[0].ToString();
+                return thumbnail_url[1].ToString();
                 
                
 
