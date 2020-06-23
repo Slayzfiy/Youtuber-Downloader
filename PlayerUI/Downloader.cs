@@ -10,6 +10,8 @@ using System.Threading.Tasks;
 using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
+using System.Drawing.Imaging;
+using System;
 
 namespace PlayerUI
 {
