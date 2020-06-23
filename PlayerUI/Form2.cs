@@ -32,7 +32,8 @@ namespace PlayerUI
             }
             else
             {
-                d.Save_Video_KEYWORD(link);
+                MessageBox.Show(d.Save_Video_KEYWORD(link).ToString());
+                //d.Save_Video_KEYWORD(link);
             }
         }
     }

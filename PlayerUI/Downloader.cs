@@ -4,6 +4,8 @@ using System.Net.Http;
 using System.Collections.Generic;
 using System.Net;
 using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
+using System.Linq;
 
 namespace PlayerUI
 {
@@ -19,16 +21,26 @@ namespace PlayerUI
             File.WriteAllBytes(@"D:\" + video.FullName, video.GetBytes());
         }
 
-        public void Save_Video_KEYWORD(string keyword)
+        public string Save_Video_KEYWORD(string keyword)
         {
             string link = $"https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=1&q={keyword}&type=video&key={api_token}";
             using (var wb = new WebClient())
             {
                 var response = wb.DownloadString(link);
-                dynamic stuff = JsonConvert.DeserializeObject(response);
-                string video_id = stuff.videoId;
-                string youtube_url = $"https://www.youtube.com/watch?v={video_id}";
+                // dynamic stuff = JsonConvert.DeserializeObject(response);
+
+                var tmpResult = JObject.Parse(response);
+                
+
+                var resultObject = tmpResult["items"].Values("id").Values("videoId").ToArray();
+                return resultObject[0].ToString();
+
+
+
+                return resultObject.ToString();
+                string youtube_url = $"https://www.youtube.com/watch?v={resultObject}";
                 Save_Video_LINK(youtube_url);
+                
             }
         }
     }
