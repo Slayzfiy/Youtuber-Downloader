@@ -1,12 +1,15 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace PlayerUI
 {
     class VideoObject
     {
+        private string video_title, video_url, video_thumbnail;
+        public VideoObject(string video_title, string video_url, string video_thumbnail)
+        {
+            this.video_title = video_title;
+            this.video_url = video_url;
+            this.video_thumbnail = video_thumbnail;
+        }
     }
 }
