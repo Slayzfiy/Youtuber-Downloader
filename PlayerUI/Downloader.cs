@@ -41,14 +41,14 @@ namespace PlayerUI
                 var temp_video_thumbnail = tmpResult["items"].Values("snippet").Values("thumbnails").Values("high").Values("url").ToArray();
 
                 List<VideoObject> video_list = new List<VideoObject>();
-                for (int i = 0; i < 10; i++)
+                for (int i = 0; i < 10; i++) 
                 {
                     string temp_video_url = string.Format("https://www.youtube.com/watch?v={0}", temp_video_id[i].ToString());
                     VideoObject video_obj = new VideoObject(temp_video_title[i].ToString(), temp_video_url, temp_video_thumbnail[i].ToString());
                     video_list.Add(video_obj);
                 }
 
-                return video_list;
+                return video_list; 
             }
         }
         public Image DownloadImage(string url)

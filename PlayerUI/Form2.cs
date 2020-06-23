@@ -22,19 +22,25 @@ namespace PlayerUI
             this.Close();
         }
 
+        private Downloader downloader = new Downloader();
+        private List<VideoObject> objects = new List<VideoObject>();
         private void btn_search_Click(object sender, EventArgs e)
         {
-            Downloader d = new Downloader();
-            string link = tb_input.Text;
-            if (link.Contains("http"))
-            {
-                d.Save_Video_LINK(link);
-            }
+            lb_items.Items.Clear();
+            this.objects.Clear();
+            string input = tb_input.Text;
+
+            if (input.Contains("http"))
+                this.objects.Add(downloader.Search_Video_Link(input));
             else
-            {
-                MessageBox.Show(d.Save_Video_KEYWORD(link).ToString());
-                //d.Save_Video_KEYWORD(link);
-            }
+                this.objects.AddRange(downloader.Search_Video_Name(input));
+
+            this.objects.ForEach(item => AddItem(item));
+        }
+
+        private void AddItem(VideoObject obj)
+        {
+            lb_items.Items.Add(obj.video_title);
         }
 
         private void btn_download_Click(object sender, EventArgs e)
@@ -45,6 +51,16 @@ namespace PlayerUI
         private void tb_input_Enter(object sender, EventArgs e)
         {
             tb_input.Text = "";
+        }
+
+        private void lb_items_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (lb_items.SelectedItem != null)
+            {
+                this.pb_thumbnail.BackgroundImage = this.downloader.DownloadImage(
+                    this.objects.Where(item => item.video_title == lb_items.SelectedItem.ToString()).First().video_thumbnail);
+
+            }
         }
     }
 }

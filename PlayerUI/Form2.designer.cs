@@ -34,6 +34,9 @@
             this.btn_search = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
             this.lb_items = new System.Windows.Forms.ListBox();
+            this.pb_thumbnail = new System.Windows.Forms.PictureBox();
+            this.lbl_desc = new System.Windows.Forms.Label();
+            ((System.ComponentModel.ISupportInitialize)(this.pb_thumbnail)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -68,7 +71,7 @@
             this.btn_download.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_download.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_download.ForeColor = System.Drawing.Color.LightGray;
-            this.btn_download.Location = new System.Drawing.Point(508, 145);
+            this.btn_download.Location = new System.Drawing.Point(508, 283);
             this.btn_download.Name = "btn_download";
             this.btn_download.Size = new System.Drawing.Size(150, 40);
             this.btn_download.TabIndex = 5;
@@ -119,6 +122,25 @@
             this.lb_items.Name = "lb_items";
             this.lb_items.Size = new System.Drawing.Size(277, 224);
             this.lb_items.TabIndex = 8;
+            this.lb_items.SelectedIndexChanged += new System.EventHandler(this.lb_items_SelectedIndexChanged);
+            // 
+            // pb_thumbnail
+            // 
+            this.pb_thumbnail.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pb_thumbnail.Location = new System.Drawing.Point(337, 146);
+            this.pb_thumbnail.Name = "pb_thumbnail";
+            this.pb_thumbnail.Size = new System.Drawing.Size(150, 92);
+            this.pb_thumbnail.TabIndex = 9;
+            this.pb_thumbnail.TabStop = false;
+            // 
+            // lbl_desc
+            // 
+            this.lbl_desc.AutoSize = true;
+            this.lbl_desc.ForeColor = System.Drawing.Color.White;
+            this.lbl_desc.Location = new System.Drawing.Point(337, 241);
+            this.lbl_desc.Name = "lbl_desc";
+            this.lbl_desc.Size = new System.Drawing.Size(0, 13);
+            this.lbl_desc.TabIndex = 10;
             // 
             // Form2
             // 
@@ -126,6 +148,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(30)))), ((int)(((byte)(45)))));
             this.ClientSize = new System.Drawing.Size(684, 431);
+            this.Controls.Add(this.lbl_desc);
+            this.Controls.Add(this.pb_thumbnail);
             this.Controls.Add(this.lb_items);
             this.Controls.Add(this.button5);
             this.Controls.Add(this.btn_search);
@@ -134,6 +158,7 @@
             this.Controls.Add(this.label1);
             this.Name = "Form2";
             this.Text = "Form2";
+            ((System.ComponentModel.ISupportInitialize)(this.pb_thumbnail)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -147,5 +172,7 @@
         private System.Windows.Forms.Button btn_search;
         private System.Windows.Forms.Button button5;
         private System.Windows.Forms.ListBox lb_items;
+        private System.Windows.Forms.PictureBox pb_thumbnail;
+        private System.Windows.Forms.Label lbl_desc;
     }
 }
