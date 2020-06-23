@@ -44,9 +44,9 @@
             this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(42)))), ((int)(((byte)(83)))));
             this.label1.Location = new System.Drawing.Point(258, 9);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(173, 25);
+            this.label1.Size = new System.Drawing.Size(116, 25);
             this.label1.TabIndex = 0;
-            this.label1.Text = "FORMULARIO X1";
+            this.label1.Text = "Downloader";
             // 
             // tb_input
             // 
@@ -117,7 +117,7 @@
             this.lb_items.ItemHeight = 16;
             this.lb_items.Location = new System.Drawing.Point(54, 99);
             this.lb_items.Name = "lb_items";
-            this.lb_items.Size = new System.Drawing.Size(448, 272);
+            this.lb_items.Size = new System.Drawing.Size(277, 224);
             this.lb_items.TabIndex = 8;
             // 
             // Form2
