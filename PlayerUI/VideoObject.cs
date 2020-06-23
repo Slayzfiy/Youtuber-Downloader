@@ -2,9 +2,9 @@
 
 namespace PlayerUI
 {
-    class VideoObject
+    public class VideoObject
     {
-        private string video_title, video_url, video_thumbnail;
+        public string video_title, video_url, video_thumbnail;
         public VideoObject(string video_title, string video_url, string video_thumbnail)
         {
             this.video_title = video_title;
