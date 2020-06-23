@@ -23,24 +23,23 @@ namespace PlayerUI
 
         public string Save_Video_KEYWORD(string keyword)
         {
-            string link = $"https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=1&q={keyword}&type=video&key={api_token}";
+            string link = $"https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=2&q={keyword}&type=video&key={api_token}";
             using (var wb = new WebClient())
             {
                 var response = wb.DownloadString(link);
-                // dynamic stuff = JsonConvert.DeserializeObject(response);
-
                 var tmpResult = JObject.Parse(response);
+                var video_id = tmpResult["items"].Values("id").Values("videoId").ToArray();
+                var thumbnail_url = tmpResult["items"].Values("thumbnails").Values("default").Values("url").ToArray();
+
+                return thumbnail_url[0].ToString();
                 
+               
 
-                var resultObject = tmpResult["items"].Values("id").Values("videoId").ToArray();
-                return resultObject[0].ToString();
-
-
-
-                return resultObject.ToString();
-                string youtube_url = $"https://www.youtube.com/watch?v={resultObject}";
-                Save_Video_LINK(youtube_url);
-                
+                // finished 
+                //string id = video_id[0].ToString();
+                //string youtube_url = $"https://www.youtube.com/watch?v={id}";
+                //Save_Video_LINK(youtube_url);
+                //return youtube_url;
             }
         }
     }
