@@ -22,10 +22,10 @@ namespace PlayerUI
             this.Close();
         }
 
-        private void button4_Click(object sender, EventArgs e)
+        private void btn_search_Click(object sender, EventArgs e)
         {
             Downloader d = new Downloader();
-            string link = textBox1.Text;
+            string link = tb_input.Text;
             if (link.Contains("http"))
             {
                 d.Save_Video_LINK(link);
@@ -35,6 +35,16 @@ namespace PlayerUI
                 MessageBox.Show(d.Save_Video_KEYWORD(link).ToString());
                 //d.Save_Video_KEYWORD(link);
             }
+        }
+
+        private void btn_download_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tb_input_Enter(object sender, EventArgs e)
+        {
+            tb_input.Text = "";
         }
     }
 }
