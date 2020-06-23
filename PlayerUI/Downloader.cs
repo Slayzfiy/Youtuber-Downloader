@@ -9,6 +9,8 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Drawing;
 using System.Text;
+using System.Drawing.Imaging;
+using System;
 
 namespace PlayerUI
 {
@@ -45,27 +47,15 @@ namespace PlayerUI
             }
         }
 
-        public async Task<Bitmap> GetImageBitmapFromUrl(string url)
+        public Image DownloadImage(string url)
         {
-            Bitmap imageBitmap = null;
-            try
+            using (System.Net.WebClient webClient = new System.Net.WebClient())
             {
-                using (var webClient = new WebClient())
+                using (Stream stream = webClient.OpenRead(url))
                 {
-                    var imageBytes = await webClient.DownloadDataTaskAsync(url);
-                    if (imageBytes != null && imageBytes.Length > 0)
-                    {
-                        //imageBitmap = BitmapFactory.DecodeByteArray(Encoding.ASCII.GetBytes(imageBytes), 0, imageBytes.Length);
-                        imageBitmap = BitmapFactory.DecodeByteArray(Encoding.BigEndianUnicode.GetBytes(imageBytes), 0, imageBytes.Length);
-                    }
+                    return Image.FromStream(stream);
                 }
             }
-            catch
-            {
-                //Silence is gold.
-            }
-           
-            return imageBitmap;
         }
     }
 }
