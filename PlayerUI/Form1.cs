@@ -176,5 +176,11 @@ namespace PlayerUI
             childForm.BringToFront();
             childForm.Show();
         }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            this.Size = new Size(1200, 800);
+            this.StartPosition = FormStartPosition.CenterScreen;
+        }
     }
 }

@@ -43,7 +43,7 @@
             this.button5.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button5.ForeColor = System.Drawing.Color.LightGray;
             this.button5.Location = new System.Drawing.Point(1303, 15);
-            this.button5.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.button5.Margin = new System.Windows.Forms.Padding(6);
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(50, 48);
             this.button5.TabIndex = 14;
@@ -59,8 +59,8 @@
             this.btn_savechanges.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_savechanges.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_savechanges.ForeColor = System.Drawing.Color.LightGray;
-            this.btn_savechanges.Location = new System.Drawing.Point(878, 687);
-            this.btn_savechanges.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.btn_savechanges.Location = new System.Drawing.Point(1419, 950);
+            this.btn_savechanges.Margin = new System.Windows.Forms.Padding(6);
             this.btn_savechanges.Name = "btn_savechanges";
             this.btn_savechanges.Size = new System.Drawing.Size(300, 77);
             this.btn_savechanges.TabIndex = 15;
@@ -74,7 +74,7 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(42)))), ((int)(((byte)(83)))));
-            this.label2.Location = new System.Drawing.Point(545, 32);
+            this.label2.Location = new System.Drawing.Point(816, 32);
             this.label2.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(235, 46);
@@ -87,7 +87,7 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(47, 212);
+            this.label1.Location = new System.Drawing.Point(318, 212);
             this.label1.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(294, 46);
@@ -107,13 +107,13 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(30)))), ((int)(((byte)(45)))));
-            this.ClientSize = new System.Drawing.Size(1347, 815);
+            this.ClientSize = new System.Drawing.Size(1888, 1078);
             this.Controls.Add(this.tb_downloadpath);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.btn_savechanges);
             this.Controls.Add(this.button5);
-            this.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.Margin = new System.Windows.Forms.Padding(6);
             this.Name = "Form3";
             this.Text = "Form3";
             this.Load += new System.EventHandler(this.Form3_Load);
