@@ -137,9 +137,7 @@ namespace PlayerUI
 
         private void button10_Click(object sender, EventArgs e)
         {
-            //..
-            //your codes
-            //..
+            openChildForm(new Form3());
             hideSubMenu();
         }
 
@@ -152,14 +150,6 @@ namespace PlayerUI
         }
         #endregion
 
-        private void btnEqualizer_Click(object sender, EventArgs e)
-        {
-            openChildForm(new Form3());
-            //..
-            //your codes
-            //..
-            hideSubMenu();
-        }
 
         private void btnHelp_Click(object sender, EventArgs e)
         {

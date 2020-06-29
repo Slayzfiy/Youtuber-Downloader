@@ -4,8 +4,10 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Net;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 using System.Windows.Forms;
 
 namespace PlayerUI
@@ -43,9 +45,10 @@ namespace PlayerUI
             lb_items.Items.Add(obj.video_title);
         }
 
-        private void btn_download_Click(object sender, EventArgs e)
-        {
 
+        private void wc_DownloadProgressChanged(object sender, DownloadProgressChangedEventArgs e)
+        {
+            pgb_download.Value = e.ProgressPercentage;
         }
 
         private void tb_input_Enter(object sender, EventArgs e)
@@ -57,9 +60,19 @@ namespace PlayerUI
         {
             if (lb_items.SelectedItem != null)
             {
-                this.pb_thumbnail.BackgroundImage = this.downloader.DownloadImage(
-                    this.objects.Where(item => item.video_title == lb_items.SelectedItem.ToString()).First().video_thumbnail);
+                pb_thumbnail.BackgroundImage = downloader.DownloadImage(
+                    objects.Where(item => item.video_title == lb_items.SelectedItem.ToString()).First().video_thumbnail);
+            }
+        }
 
+        private void btn_download_Click(object sender, EventArgs e)
+        {
+            string video_url_download = this.objects.Where(item => item.video_title == lb_items.SelectedItem.ToString()).First().video_url.ToString();
+            Preferences i = new Preferences();
+            using (WebClient wc = new WebClient())
+            {
+                wc.DownloadProgressChanged += wc_DownloadProgressChanged;
+                wc.DownloadFileAsync(new Uri(video_url_download), i.Get_Download_Path());
             }
         }
     }

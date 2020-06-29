@@ -47,7 +47,6 @@ namespace PlayerUI
                     VideoObject video_obj = new VideoObject(temp_video_title[i].ToString(), temp_video_url, temp_video_thumbnail[i].ToString());
                     video_list.Add(video_obj);
                 }
-
                 return video_list; 
             }
         }
@@ -61,7 +60,5 @@ namespace PlayerUI
                 }
             }
         }
-
-       
     }
 }
